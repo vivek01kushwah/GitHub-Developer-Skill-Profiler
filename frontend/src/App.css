@@ -1,0 +1,335 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #9f86b8 25%, #f093fb 50%, #4facfe 100%);
+  background-attachment: fixed;
+}
+
+/* Header Styling */
+.App header {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(185, 183, 211, 0.95) 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.App header > div {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.App header > div > div:first-child {
+  flex: 1;
+}
+
+.App header > div > div:last-child {
+  min-width: 380px;
+}
+
+.App header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem 0;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.App header p {
+  color: #cbd5e1;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Main Content */
+.App main {
+  flex: 1;
+  padding: 1rem 1.5rem 2.5rem 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Results Grid */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .results-grid {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #f1f5f9;
+}
+
+.empty-state p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.empty-state .subtitle {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Cards and Containers */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Profile Card */
+.profile-header {
+  height: 3.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.profile-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: -1.75rem;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Skill Radar */
+.skill-radar-container {
+  background: white;
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill-radar-container h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Skill Items */
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: #f1f5f9;
+}
+
+.skill-name {
+  color: #1e293b;
+  font-weight: 600;
+  flex: 1;
+}
+
+.skill-bar {
+  flex: 1;
+  height: 0.5rem;
+  background: #e2e8f0;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.skill-percent {
+  font-weight: 700;
+  color: #667eea;
+  min-width: 3rem;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+/* Error Message */
+.error-container {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-left: 4px solid #dc2626;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+}
+
+.error-container p {
+  margin: 0.25rem 0;
+  color: #991b1b;
+}
+
+/* Loading Spinner */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.spinner-text {
+  color: white;
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App header h1 {
+    font-size: 1.5rem;
+  }
+
+  .App header p {
+    font-size: 0.8rem;
+  }
+
+  .App header > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .App header > div > div:last-child {
+    min-width: auto;
+    margin-top: 0.75rem;
+  }
+
+  .App main {
+    padding: 1.5rem 1rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skill-radar-container {
+    padding: 1.5rem;
+  }
+
+  .skill-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .skill-bar {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .skill-percent {
+    align-self: flex-end;
+  }
+}
