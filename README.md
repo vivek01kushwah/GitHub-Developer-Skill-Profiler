@@ -29,7 +29,6 @@ A web application that analyzes your GitHub profile and generates a skill radar 
 - Pandas
 - NumPy
 - Scikit-learn
-- NLTK
 
 ## Project Structure
 
